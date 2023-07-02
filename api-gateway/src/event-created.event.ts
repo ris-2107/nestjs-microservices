@@ -1,3 +1,5 @@
+import { RegisterUserRequest } from './DTOs/create-order-request-dto';
+
 export class OrderCreatedEvent {
   constructor(
     public readonly orderId: string,
@@ -10,6 +12,15 @@ export class OrderCreatedEvent {
       orderId: this.orderId,
       userId: this.userId,
       price: this.price,
+    });
+  }
+}
+
+export class UserRegisteredEvent {
+  constructor(public readonly registerUserRequest: RegisterUserRequest) {}
+  toString() {
+    return JSON.stringify({
+      registerUserRequestDetails: this.registerUserRequest,
     });
   }
 }

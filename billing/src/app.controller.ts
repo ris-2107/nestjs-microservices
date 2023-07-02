@@ -21,6 +21,7 @@ export class AppController implements OnModuleInit {
   handleOrderCreated(data: any) {
     this.appService.handleOrderCreated(data);
   }
+
   onModuleInit() {
     this.authClient.subscribeToResponseOf('get_user');
   }

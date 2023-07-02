@@ -1,7 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { CreateOrderRequest } from './create-order-request-dto';
+import {
+  CreateOrderRequest,
+  RegisterUserRequest,
+} from './DTOs/create-order-request-dto';
 
 @Controller()
 export class AppController {
@@ -13,7 +16,11 @@ export class AppController {
   }
   @Post()
   createOrder(@Body() createOrderRequest: CreateOrderRequest) {
-    
     this.appService.createOrder(createOrderRequest);
+  }
+
+  @Post('/register')
+  userRegister(@Body() registerUserRequest: RegisterUserRequest) {
+    this.appService.registerUser(registerUserRequest);
   }
 }
